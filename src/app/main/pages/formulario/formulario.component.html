@@ -1,0 +1,45 @@
+<ion-content>
+
+  <form [formGroup]="formulario" (ngSubmit)="guardar()">
+
+    <ion-item>
+      <ion-input
+        label="Título"
+        formControlName="titulo" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Fecha" type="date" formControlName="fecha"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea label="Descripción" formControlName="descripcion" type="text"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Foto</ion-label>
+      <ion-button
+        (click)="takePicture()"
+        slot="end"
+        fill="clear"
+        color="primary">
+        <ion-icon slot="icon-only" name="camera"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Audio</ion-label>
+      <ion-button
+        (click)="recordAudio()"
+        slot="end"
+        fill="clear"
+        color="primary">
+        <ion-icon slot="icon-only" name="mic"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <ion-button type="submit" expand="block" [disabled]="!formulario.valid">Guardar</ion-button>
+
+  </form>
+
+</ion-content>
